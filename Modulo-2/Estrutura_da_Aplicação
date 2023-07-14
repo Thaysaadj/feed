@@ -1,0 +1,21 @@
+Usamos o CSS.MODULE para evitar que estilizações que deveriam
+ser aplicadas em apenas 1 componente não sejam aplicadas em outras partes.
+Isso nos permite usar classes com o mesmo nome para 
+componentes diferentes.
+
+-webkit-font-smoothing: Ajuda a tornar as fonts que não são padrão do sistema a ficarem mais bonitas no navegador.
+
+Sempre use tamanho de medida relativa (rem)
+Isso ajuda a melhorar a acessibilidade da aplicação.
+
+DISPLAY GRID
+** grid-template-columns: 256px 1fr 
+No código acima, definimos qual vai ser o tamanho das colunas do nosso grid. 
+Setamos um valor fixo para a primeira coluna e a segunda coluna vai ter o tamanho do que couber dentro dela. ou seja, ela vai crescer conforme os conteúdos forem aumentando. 
+
+CURIOSIDADE CSS
+.post + .post 
+Essa regra de CSS determina que uma estilização só será aplicada se um elemento existir antes ou depois dele.
+
+.post > header 
+O sinal de > indica pegar uma classe que está DENTRO, então é o header que está DENTRO da classe post
