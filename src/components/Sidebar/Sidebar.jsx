@@ -1,3 +1,4 @@
+import { Avatar } from '../Avatar/Avatar'
 import styles from './Sidebar.module.css'
 import {FilePdf} from 'phosphor-react'
 
@@ -8,7 +9,7 @@ export function Sidebar () {
 
 
       <div className={styles.profile}>
-        <img className={styles.avatar} src="https://media.licdn.com/dms/image/D4D03AQEtQb6OMmT9YA/profile-displayphoto-shrink_800_800/0/1677280638914?e=1694649600&v=beta&t=IHCrLEQnr3W7XSgHX2uGmAbRxV8KxjL_pR_8RYy6QQI" />
+        <Avatar src="https://media.licdn.com/dms/image/D4D03AQEtQb6OMmT9YA/profile-displayphoto-shrink_800_800/0/1677280638914?e=1694649600&v=beta&t=IHCrLEQnr3W7XSgHX2uGmAbRxV8KxjL_pR_8RYy6QQI"/>
 
         <strong>Thayna Saad</strong>
         <span>Web Developer</span>

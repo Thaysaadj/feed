@@ -10,8 +10,14 @@
 
   --rose-300: #d45592;
   --rose-500: #fc037b;
+
+  --red-500: #f75a68;
 }
 
+:focus{
+  outline: transparent;
+  box-shadow: 0 0 0 2px var(--rose-500);
+}
 
 *{
   margin: 0;
