@@ -19,3 +19,15 @@ Essa regra de CSS determina que uma estilização só será aplicada se um eleme
 
 .post > header 
 O sinal de > indica pegar uma classe que está DENTRO, então é o header que está DENTRO da classe post
+
+.commentForm:focus-within footer - Essa propriedade é diferente do focus tradicional
+Se houver algum foco dentro de footer ele vai aplicar
+o focus-within, e apenas essa tag vai receber a regra css definida. 
+
+
+UNIDADE DE MEDIDA rem
+
+Ela determina que tudo em tela vai se adaptar ao tamanho da font que o usuário escolher.
+Ideal para acessibilidade 
+
+USE STATE
