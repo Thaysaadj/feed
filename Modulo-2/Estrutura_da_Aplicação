@@ -31,3 +31,19 @@ Ela determina que tudo em tela vai se adaptar ao tamanho da font que o usuário 
 Ideal para acessibilidade 
 
 USE STATE
+São variáveis que eu quero que o componente monitore. 
+Quando tiver uma mudança de valor, o estado vai executar essa mudança para o react
+
+O useState retorna um array com 2 itens.
+1 - Aváriavel que guarda o valor
+2 - A função que altera essa variável que guarda o valor.
+const = [variável, setVariável] = useState()
+Sempre que eu quiser mudar o valor da variável, a função que altera o valor dela, será acionada, informando ao React que é hora de executar uma ação.
+
+CHAVE KEY 
+A chave key serve para ajudar p react a identificar qual 
+informação já estava em tela. 
+Isso é importantre porque ajuda a diminuir o rempo de 
+rerenderização, evitando que componentes que já estavam em tela 
+sejam carregados de novo. Isso melhora a performance da aplicação.
+

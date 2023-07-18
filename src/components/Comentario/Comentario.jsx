@@ -2,7 +2,7 @@ import { Avatar } from '../Avatar/Avatar'
 import styles from './Comentario.module.css'
 import {Trash, ThumbsUp} from 'phosphor-react'
 
-export function Comentario() {
+export function Comentario({content}) {
   return (
     <div className={styles.comment}>
       <Avatar src='https://media.licdn.com/dms/image/D4D03AQEtQb6OMmT9YA/profile-displayphoto-shrink_800_800/0/1677280638914?e=1694649600&v=beta&t=IHCrLEQnr3W7XSgHX2uGmAbRxV8KxjL_pR_8RYy6QQI' 
@@ -24,7 +24,7 @@ export function Comentario() {
             </button>
           </header>
           <p>
-            Muito bom Devon, pravéns !!
+            {content}
           </p>
         </div>
         <footer>
