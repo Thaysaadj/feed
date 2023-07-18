@@ -11,14 +11,16 @@ import ptBR from 'date-fns/locale/pt-BR'
 /**publishedAt : Date * data da publicação*/
 /**content: String  conteúdo do post*/
 
-const comments = [
-  1, 2
-]
 
 export function Post({ author, publishedAt, content }) {
-
-  const [comments, setComments] = useState(['Post muito bacatan, hein ?!']);
+  //Estado que armazena os comentários
+  const [comments, setComments] = useState([
+    'Post muito bacatan, hein ?!'
+  ]);
+  //Estado que armazena os NOVOS comentários
   const [newCommentText, setNewCommentText] = useState('')
+
+  console.log(newCommentText)
 
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h' ", {
     locale: ptBR,
@@ -28,19 +30,43 @@ export function Post({ author, publishedAt, content }) {
     locale: ptBR,
     addSuffix: true,
   })
+
   //Função que Cria um comentário
   function handleCreateNewComment() {
     event.preventDefault()
-
     setComments([...comments, newCommentText])
-
     setNewCommentText('')
-
   }
+
   // Função que pega o valor do input e guarda no estado que vai criar um novo comentário
   function handleNewCommentChange() {
+    /**Depois de pegar o comentário e adicionar ele no novo comentário o input deve voltar a exibir
+     * a informação de campo obrigatório
+     */
+    event.target.setCustomValidity("")
     setNewCommentText(event.target.value)
   }
+
+  function handleNewCommentInvalid() {
+    /**A textArea tem uma propriedade chamada setCustomValidity
+     * que permite escrevermos uma mensagem que será apresentada ao usuário
+     */
+    event.target.setCustomValidity("Esse campo é obrigatório")
+  }
+
+  //Função que apaga comentário
+  function onDeleteComments(commentToDelete) {
+    /**O Filter percorre cada comentário e se o retorno for true, ele mantem 
+     * na lista, e se for false, ele remove da lista
+     */
+    const commentsWithoutDeletedOne = comments.filter(comment => {
+      return comments !== commentToDelete
+    })
+    setComments(commentsWithoutDeletedOne)
+  }
+
+  const isNewCommentEmpty = newCommentText.length === 0
+ 
 
   return (
     <article className={styles.post} >
@@ -74,19 +100,28 @@ export function Post({ author, publishedAt, content }) {
           value={newCommentText}
           placeholder='Deixe um comentário'
           onChange={handleNewCommentChange}
+          onInvalid={handleNewCommentInvalid}
+          required
         />
 
         <footer>
-          <button type='submit'>Publicar</button>
+          <button type='submit' disabled={isNewCommentEmpty}>
+            Publicar
+          </button>
         </footer>
       </form>
 
       <div className={styles.commentList}>
         {comments.map(comment => {
-          return <Comentario
-            key={comment}
-            content={comment}
-          />
+          return (
+            <Comentario
+              key={comment}
+              content={comment}
+              //envia uma função como propriedade para o 
+              //componente Comentario
+              onDeleteComments={onDeleteComments}
+            />
+          )
         })}
       </div>
 

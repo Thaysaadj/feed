@@ -47,3 +47,20 @@ Isso é importantre porque ajuda a diminuir o rempo de
 rerenderização, evitando que componentes que já estavam em tela 
 sejam carregados de novo. Isso melhora a performance da aplicação.
 
+COMUNICAÇÃO ENTRE componentes
+Fazemos essa comunicação por usar as propriedades do componente
+que queremos manipular dentro do componente manipulador.
+Podemos fazer funções entre comentários
+
+IMITABILIDADE -> As variáveis não sofrem mutação
+Ou seja, nós nunca alteramos o valor de uma variável na nossa aplicação
+Nós criamos um novo espaço na memória,
+
+ATUALIZAÇÃO DE ESTADO QUE DEPENDE DE UMA ATUALIZAÇÃO DELE MESMO
+DEVEMOS UTILIZAR ESSE padrão
+
+funtion nomeFunctio () {
+  setAtualizadorDoEstato ((recebeUmValor) => {
+    return recebeUmValor + 1
+  })
+}

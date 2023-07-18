@@ -1,11 +1,27 @@
 import { Avatar } from '../Avatar/Avatar'
 import styles from './Comentario.module.css'
-import {Trash, ThumbsUp} from 'phosphor-react'
+import { Trash, ThumbsUp } from 'phosphor-react'
+import { useState } from 'react'
+/** Recebe como propriedade do componente Post a função onDeleteComments
+ * e pode usar ela aqui para deletar os cometários*/
+export function Comentario({ content, onDeleteComments }) {
 
-export function Comentario({content}) {
+  const [like, setLike] = useState(0)
+
+  function handleDeleteComment() {
+    console.log("deletar")
+    onDeleteComments(content)
+  }
+
+  function handleLike() {
+    setLike((state) => {
+      return state + 1
+    })
+  }
+
   return (
     <div className={styles.comment}>
-      <Avatar src='https://media.licdn.com/dms/image/D4D03AQEtQb6OMmT9YA/profile-displayphoto-shrink_800_800/0/1677280638914?e=1694649600&v=beta&t=IHCrLEQnr3W7XSgHX2uGmAbRxV8KxjL_pR_8RYy6QQI' 
+      <Avatar src='https://media.licdn.com/dms/image/D4D03AQEtQb6OMmT9YA/profile-displayphoto-shrink_800_800/0/1677280638914?e=1694649600&v=beta&t=IHCrLEQnr3W7XSgHX2uGmAbRxV8KxjL_pR_8RYy6QQI'
         hasBorder={false}
       />
 
@@ -19,8 +35,8 @@ export function Comentario({content}) {
               </time>
             </div>
 
-            <button title='Deletar comentário'> 
-              <Trash size={24}/>
+            <button onClick={handleDeleteComment} title='Deletar comentário'>
+              <Trash size={24} />
             </button>
           </header>
           <p>
@@ -28,9 +44,9 @@ export function Comentario({content}) {
           </p>
         </div>
         <footer>
-          <button>
-            <ThumbsUp/>
-            Aplaudir <span>20</span>
+          <button onClick={handleLike}>
+            <ThumbsUp />
+            Aplaudir <span>{like}</span>
           </button>
         </footer>
       </div>
